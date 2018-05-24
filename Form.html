@@ -16,32 +16,86 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             var check = "Img/f-check_256-32.png";
+
             var error = "Img/Error-32.png";
-                
 
             document.getElementById("input_name").addEventListener("blur", function () {
                 var span1 = document.querySelector("#span1");
                 var img_name = document.querySelector("#img_name");
                 var theName = document.querySelector("#input_name").value;
-                var re = /^[\u4e00-\u9fff]{2,}$/; 
+                
                 if (theName == "") {
                     img_name.src = error;
                     span1.innerHTML = "名子不可空白";
-                }
+                } else if (theName.length >= 2) {
+                    var re = /^[\u4e00-\u9fff]{2,}$/;
 
+                    if (re.test(theName)) {
+                        img_name.src = check;
+                        span1.innerHTML = "";
+
+                    } else {
+                        img_name.src = error;
+                        span1.innerHTML = "請輸入中文字";
+                    }
+                } else {
+                    img_name.src = error;
+                    span1.innerHTML = "請輸入2個字以上";
+                }
 
             })
             document.getElementById("input_pw").addEventListener("blur", function () {
 
                 var thePW = document.getElementById("input_pw").value;
+                var span2 = document.querySelector("#span2");
+                var img_pw = document.querySelector("#img_pw");
+                if (thePW == "") {
+                    img_pw.src = error;
+                    span2.innerHTML = "密碼不可空白";
+                } else if (thePW.length >= 6) {
+
+                    var re = /^.*(?=.{6})(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).*$/;                    if (re.test(thePW)) {
+                        img_pw.src = check;
+                        span2.innerHTML = "";
+
+                    } else {
+                        img_pw.src = error;
+                        span2.innerHTML = "密碼至少包含數字及英文字母和特殊符號[!@#$%^&*]";
+                    }
+
+                } else {
+                    img_pw.src = error;
+                    span2.innerHTML = "請輸入6碼以上";
+                }
 
             })
             document.getElementById("input_date").addEventListener("blur", function () {
 
-                var theDate = document.getElementById("input_date").value;
+                var input_date = document.getElementById("input_date").value;
+                var img_date = document.querySelector("#img_date");
+                var span3 = document.querySelector("#span3");
+
+
+                if (input_date == "" || input_date.length > 10) {
+                    img_date.src = error;
+                    span3.innerHTML = "請輸入正確的格式<br/>EX:2000/01/01";
+
+                } else  {
+                    var dateObj = input_date.split("/");//分割                                        var CheckDate = new Date(dateObj[0], dateObj[1] - 1, dateObj[2]);                    
+                    if (CheckDate.getDate() == dateObj[2]) {
+                        img_date.src = check;
+                        span3.innerHTML = "";
+
+
+                    } else {
+                        img_date.src = error;
+                        span3.innerHTML = "日期有錯";
+                    }
+                }
+
 
                 //var theDateAry = theDate.split("/");
-                
+
                 //var DtheDate = new Date(theDateAry[0], theDateAry[1] - 1, theDateAry[2]);
 
                 //if (DtheDate.getDay() == theDateAry[2]) {
@@ -66,7 +120,7 @@
                     <a class="nav-link active" href="index.html">9x9乘法表</a>
                     <a class="nav-link active" href="Form.html">表單驗證</a>
                     <a class="nav-link active" href="star.html">星星</a>
-                    
+
                 </nav>
             </div>
         </header>
@@ -76,23 +130,26 @@
             <form>
                 <div class="form-group">
                     <label for="input_name">姓名</label>
-                    <input type="text" class="form-control" id="input_name" aria-describedby="nameHelp" placeholder="請輸入姓名"><img  id="img_name" src="" alt="" /><span id="span1"></span>
+                    <input type="text" class="form-control" id="input_name" aria-describedby="nameHelp" placeholder="請輸入姓名">
+                    <img id="img_name" src="" alt="" />
+                    <span id="span1"></span>
                     <small id="nameHelp" class="form-text text-muted">1.不可空白，2.至少2個字以上，3.必須為中文字</small>
                 </div>
                 <div class="form-group">
                     <label for="input_pw">密碼</label>
                     <input type="password" class="form-control" id="input_pw" placeholder="請輸入密碼" aria-describedby="pwHelp">
-                    <small id="pwHelp" class="form-text text-muted">1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*]</small><img src="" alt="" /><span id="span2"></span>
+                    <small id="pwHelp" class="form-text text-muted">1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*]</small>.
+                    <img id="img_pw" src="" alt="" />
+                    <span id="span2"></span>
                 </div>
                 <div class="form-group">
                     <label for="input_date">日期</label>
-                    <input type="email" class="form-control" id="input_date" aria-describedby="dateHelp" placeholder="ex:2000/01/01"><img src="" alt="" /><span id="span3"></span>
-                    <small id="dateHelp" class="form-text text-muted">格式:西元年/月/日 yyyy/MM/dd</small>
+                    <input type="email" class="form-control" id="input_date" aria-describedby="dateHelp" placeholder="ex:2000/01/01">
+                    <img id="img_date" src="" alt="" />
+                    <span id="span3"></span>
+                    <small id="dateHelp" class="form-text text-muted">格式:西元年/月/日 2000/01/01</small>
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
+                
                 <button type="submit" class="btn btn-primary">送出</button>
                 <button type="submit" class="btn btn-primary">清除</button>
             </form>
