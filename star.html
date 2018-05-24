@@ -27,15 +27,38 @@
 
             var stars = document.querySelectorAll("img.s");
 
-            for (var i = 0; i < star.length; i++) {
+            for (var i = 0; i < stars.length; i++) {
                 stars[i].addEventListener("mouseover", Over);
                 stars[i].addEventListener("mouseleave", Leave);
                 stars[i].addEventListener("click", click);
             }
-            
         });
         function Over() {
 
+            var num = this.id.substr(6);
+            var num_str = parseInt(num) + 1;
+            for (var i = 0; i <= num; i++) {
+                document.querySelector("#idstar" + i).className = "n";
+                document.querySelector("#span1").innerHTML = num_str + "星";
+            }
+           
+            
+
+        }
+        function Leave() {
+
+            var num = this.id.substr(6);
+            for (var i = 0; i <= num; i++) {
+                document.querySelector("#idstar" + i).className = "s";
+                document.querySelector("#span1").innerHTML =  "0星";
+            }
+            
+            
+        }
+        function click() {
+            var num = this.id.substr(6);
+            var num_str = parseInt(num) + 1;
+            document.querySelector("#span1").innerHTML = "得到" + num_str+"星";
         }
     </script>
 </head>
@@ -59,8 +82,8 @@
             <img id="idstar1" class="s" src="Img/star.jpg" />
             <img id="idstar2" class="s" src="Img/star.jpg" />
             <img id="idstar3" class="s" src="Img/star.jpg" />
-            <img id="idstar4" class="s" src="Img/star.jpg" />
-            <span id="span1"></span>
+            <img id="idstar4" class="s" src="Img/star.jpg" /><br />
+            <span id="span1">0星</span>
         </main>
         <footer class="mastfoot mt-auto">
             <div class="inner">
