@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
+    <style>
+        .s {
+            -webkit-filter: grayscale(1); /*沒有任何色彩的黑白影像*/
+        }
+
+        .n {
+            -webkit-filter: grayscale(0); /*顏色不變*/
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var stars = document.querySelectorAll("img.s");
+
+            for (var i = 0; i < star.length; i++) {
+                stars[i].addEventListener("mouseover", mouseOverF);
+                stars[i].addEventListener("mouseleave", mouseLeaveF);
+                stars[i].addEventListener("click", clickF);
+            
+            }
+            
+        });
+        function mouseOverF() {
+
+        }
+    </script>
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">JavaScript作業</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="index.html">9x9乘法表</a>
+                    <a class="nav-link active" href="Form.html">表單驗證</a>
+                    <a class="nav-link active" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h4 class="cover-heading">評點</h4>
+            <img id="idstar0" class="s" src="Img/star.jpg" />
+            <img id="idstar1" class="s" src="Img/star.jpg" />
+            <img id="idstar2" class="s" src="Img/star.jpg" />
+            <img id="idstar3" class="s" src="Img/star.jpg" />
+            <img id="idstar4" class="s" src="Img/star.jpg" />
+            <span id="span1"></span>
+        </main>
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
+
+

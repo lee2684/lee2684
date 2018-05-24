@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var check = "Img/f-check_256-32.png";
+            var error = "Img/Error-32.png";
+                
+
+            document.getElementById("input_name").addEventListener("blur", function () {
+                var span1 = document.querySelector("#span1");
+                var img_name = document.querySelector("#img_name");
+                var theName = document.querySelector("#input_name").value;
+                var re = /^[\u4e00-\u9fff]{2,}$/; 
+                if (theName == "") {
+                    img_name.src = error;
+                    span1.innerHTML = "名子不可空白";
+                } else if () {
+
+                }
+
+
+            })
+            document.getElementById("input_pw").addEventListener("blur", function () {
+
+                var thePW = document.getElementById("input_pw").value;
+
+            })
+            document.getElementById("input_date").addEventListener("blur", function () {
+
+                var theDate = document.getElementById("input_date").value;
+
+                //var theDateAry = theDate.split("/");
+                
+                //var DtheDate = new Date(theDateAry[0], theDateAry[1] - 1, theDateAry[2]);
+
+                //if (DtheDate.getDay() == theDateAry[2]) {
+
+
+
+                //} else {
+                //    document.getElementById("img_name");
+                //}
+            })
+        });
+
+    </script>
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">JavaScript作業</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="index.html">9x9乘法表</a>
+                    <a class="nav-link active" href="Form.html">表單驗證</a>
+                    <a class="nav-link active" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h4 class="cover-heading">表單驗證</h4>
+            <form>
+                <div class="form-group">
+                    <label for="input_name">姓名</label>
+                    <input type="text" class="form-control" id="input_name" aria-describedby="nameHelp" placeholder="請輸入姓名"><img  id="img_name" src="" alt="" /><span id="span1"></span>
+                    <small id="nameHelp" class="form-text text-muted">1.不可空白，2.至少2個字以上，3.必須為中文字</small>
+                </div>
+                <div class="form-group">
+                    <label for="input_pw">密碼</label>
+                    <input type="password" class="form-control" id="input_pw" placeholder="請輸入密碼" aria-describedby="pwHelp">
+                    <small id="pwHelp" class="form-text text-muted">1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*]</small><img src="" alt="" /><span id="span2"></span>
+                </div>
+                <div class="form-group">
+                    <label for="input_date">日期</label>
+                    <input type="email" class="form-control" id="input_date" aria-describedby="dateHelp" placeholder="ex:2000/01/01"><img src="" alt="" /><span id="span3"></span>
+                    <small id="dateHelp" class="form-text text-muted">格式:西元年/月/日 yyyy/MM/dd</small>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">送出</button>
+                <button type="submit" class="btn btn-primary">清除</button>
+            </form>
+
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
+
+
